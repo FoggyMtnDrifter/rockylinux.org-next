@@ -14,34 +14,16 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useTranslate } from "@tolgee/react";
 
-const components: { title: string; href: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-  },
-];
+type MenuItem = {
+  title: string;
+  href: string;
+};
 
-const aboutItems: { title: string; href: string }[] = [
+type NavigationMenuItemListProps = {
+  items: MenuItem[];
+};
+
+const aboutItems: MenuItem[] = [
   {
     title: "About Rocky Linux",
     href: "/about",
@@ -60,7 +42,7 @@ const aboutItems: { title: string; href: string }[] = [
   },
 ];
 
-const resourcesItems: { title: string; href: string }[] = [
+const resourcesItems: MenuItem[] = [
   {
     title: "Frequently Asked Questions",
     href: "/resources/faq",
@@ -79,7 +61,7 @@ const resourcesItems: { title: string; href: string }[] = [
   },
 ];
 
-const communityItems: { title: string; href: string }[] = [
+const communityItems: MenuItem[] = [
   {
     title: "Forums",
     href: "https://forums.rockylinux.org",
@@ -102,7 +84,7 @@ const communityItems: { title: string; href: string }[] = [
   },
 ];
 
-const supportItems: { title: string; href: string }[] = [
+const supportItems: MenuItem[] = [
   {
     title: "Support Providers",
     href: "/support/providers",
@@ -113,7 +95,7 @@ const supportItems: { title: string; href: string }[] = [
   },
 ];
 
-const contributeItems: { title: string; href: string }[] = [
+const contributeItems: MenuItem[] = [
   {
     title: "Contribute",
     href: "https://wiki.rockylinux.org/contributing/",
@@ -147,25 +129,7 @@ export function DesktopNavigation() {
               {t("categories.about")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="w-[250px] p-4">
-                {aboutItems.map((item) => (
-                  <NavigationMenuLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    <a
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      )}
-                    >
-                      <div className="text-sm font-medium leading-none">
-                        {item.title}
-                      </div>
-                    </a>
-                  </NavigationMenuLink>
-                ))}
-              </ul>
+              <NavigationMenuItemList items={aboutItems} />
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
@@ -175,25 +139,7 @@ export function DesktopNavigation() {
               {t("categories.resources")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="w-[250px] p-4">
-                {resourcesItems.map((item) => (
-                  <NavigationMenuLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    <a
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      )}
-                    >
-                      <div className="text-sm font-medium leading-none">
-                        {item.title}
-                      </div>
-                    </a>
-                  </NavigationMenuLink>
-                ))}
-              </ul>
+              <NavigationMenuItemList items={resourcesItems} />
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
@@ -203,25 +149,7 @@ export function DesktopNavigation() {
               {t("categories.community")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="w-[250px] p-4">
-                {communityItems.map((item) => (
-                  <NavigationMenuLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    <a
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      )}
-                    >
-                      <div className="text-sm font-medium leading-none">
-                        {item.title}
-                      </div>
-                    </a>
-                  </NavigationMenuLink>
-                ))}
-              </ul>
+              <NavigationMenuItemList items={communityItems} />
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
@@ -231,25 +159,7 @@ export function DesktopNavigation() {
               {t("categories.support")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="w-[250px] p-4">
-                {supportItems.map((item) => (
-                  <NavigationMenuLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    <a
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      )}
-                    >
-                      <div className="text-sm font-medium leading-none">
-                        {item.title}
-                      </div>
-                    </a>
-                  </NavigationMenuLink>
-                ))}
-              </ul>
+              <NavigationMenuItemList items={supportItems} />
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
@@ -259,25 +169,7 @@ export function DesktopNavigation() {
               {t("categories.contribute")}
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="w-[250px] p-4">
-                {contributeItems.map((item) => (
-                  <NavigationMenuLink
-                    key={item.title}
-                    title={item.title}
-                    href={item.href}
-                  >
-                    <a
-                      className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      )}
-                    >
-                      <div className="text-sm font-medium leading-none">
-                        {item.title}
-                      </div>
-                    </a>
-                  </NavigationMenuLink>
-                ))}
-              </ul>
+              <NavigationMenuItemList items={contributeItems} />
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenu>
@@ -286,28 +178,24 @@ export function DesktopNavigation() {
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+function NavigationMenuItemList({ items }: NavigationMenuItemListProps) {
   return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
+    <ul className="w-[250px] p-4">
+      {items.map((item) => (
+        <NavigationMenuLink
+          key={item.title}
+          title={item.title}
+          href={item.href}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
+          <a
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+            )}
+          >
+            <div className="text-sm font-medium leading-none">{item.title}</div>
+          </a>
+        </NavigationMenuLink>
+      ))}
+    </ul>
   );
-});
-ListItem.displayName = "ListItem";
+}
