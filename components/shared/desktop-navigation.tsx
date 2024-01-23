@@ -110,6 +110,29 @@ const contributeItems: MenuItem[] = [
   },
 ];
 
+const dropdownItems: { translationString: string; itemName: MenuItem[] }[] = [
+  {
+    translationString: "categories.about",
+    itemName: aboutItems,
+  },
+  {
+    translationString: "categories.resources",
+    itemName: resourcesItems,
+  },
+  {
+    translationString: "categories.community",
+    itemName: communityItems,
+  },
+  {
+    translationString: "categories.support",
+    itemName: supportItems,
+  },
+  {
+    translationString: "categories.contribute",
+    itemName: contributeItems,
+  },
+];
+
 export function DesktopNavigation() {
   const { t } = useTranslate();
 
@@ -123,56 +146,18 @@ export function DesktopNavigation() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>
-              {t("categories.about")}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuItemList items={aboutItems} />
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>
-              {t("categories.resources")}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuItemList items={resourcesItems} />
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>
-              {t("categories.community")}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuItemList items={communityItems} />
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>
-              {t("categories.support")}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuItemList items={supportItems} />
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
-        <NavigationMenu>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>
-              {t("categories.contribute")}
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuItemList items={contributeItems} />
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenu>
+        {dropdownItems.map((item) => (
+          <NavigationMenu key={item.translationString}>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>
+                {t(item.translationString)}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuItemList items={item.itemName} />
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenu>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );
