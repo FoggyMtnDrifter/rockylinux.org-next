@@ -16,12 +16,12 @@ type Props = {
   params: { locale: string };
 };
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const fontDisplay = FontDisplay({
+const fontDisplay = FontDisplay({
   subsets: ["latin"],
   variable: "--font-display",
 });
