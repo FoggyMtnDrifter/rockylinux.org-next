@@ -1,18 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
+import { Red_Hat_Display as FontDisplay } from "next/font/google";
 import "@/app/globals.css";
 import { notFound } from "next/navigation";
 import { useLocale } from "next-intl";
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import { TolgeeNextProvider } from "@/tolgee/client";
 import { getStaticData } from "@/tolgee/shared";
+import Header from "@/components/shared/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 type Props = {
   children: ReactNode;
   params: { locale: string };
 };
 
-const inter = Inter({ subsets: ["latin"] });
+export const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+export const fontDisplay = FontDisplay({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,10 +43,24 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <body>
-        <TolgeeNextProvider locale={locale} locales={locales}>
-          {children}
-        </TolgeeNextProvider>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased max-w-7xl mx-auto px-4 xl:px-0",
+          fontSans.variable,
+          fontDisplay.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TolgeeNextProvider locale={locale} locales={locales}>
+            <Header />
+            {children}
+          </TolgeeNextProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
