@@ -61,7 +61,10 @@ export function MobileNavigation() {
               News
             </a>
             {dropdownItems.map((item) => (
-              <AccordionItem value={item.translationString}>
+              <AccordionItem
+                key={item.translationString}
+                value={item.translationString}
+              >
                 <AccordionTrigger>{t(item.translationString)}</AccordionTrigger>
                 <AccordionContent>
                   <NavigationMenuItemList items={item.itemName} />
@@ -92,6 +95,7 @@ function NavigationMenuItemList({ items }: NavigationMenuItemListProps) {
         <a
           className="flex w-full items-center py-2 focus:text-primary hover:underline"
           href={item.href}
+          key={item.title}
         >
           {item.title}
         </a>
