@@ -27,12 +27,7 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <ModeToggle />
           <a href="/download">
-            <Button className="p-5 ml-2">
-              Download
-              <span aria-hidden="true" className="ml-2">
-                &rarr;
-              </span>
-            </Button>
+            <Button className="p-5 ml-2">Download</Button>
           </a>
         </div>
       </nav>
