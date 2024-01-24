@@ -1,0 +1,99 @@
+[
+  {
+    "translationString": "categories.about",
+    "itemName": [
+      {
+        "title": "About Rocky Linux",
+        "href": "/about"
+      },
+      {
+        "title": "Community Charter",
+        "href": "/about/community-charter"
+      },
+      {
+        "title": "Sponsors",
+        "href": "/about/sponsors"
+      },
+      {
+        "title": "Partners",
+        "href": "/about/partners"
+      }
+    ]
+  },
+  {
+    "translationString": "categories.resources",
+    "itemName": [
+      {
+        "title": "Frequently Asked Questions",
+        "href": "/resources/faq"
+      },
+      {
+        "title": "Wiki",
+        "href": "https://wiki.rockylinux.org"
+      },
+      {
+        "title": "Guides & Manuals",
+        "href": "https://docs.rockylinux.org"
+      },
+      {
+        "title": "GPG Key Info",
+        "href": "/resources/gpg-key-info"
+      }
+    ]
+  },
+  {
+    "translationString": "categories.community",
+    "itemName": [
+      {
+        "title": "Forums",
+        "href": "https://forums.rockylinux.org"
+      },
+      {
+        "title": "Mailing Lists",
+        "href": "https://lists.resf.org"
+      },
+      {
+        "title": "Mattermost",
+        "href": "https://chat.rockylinux.org"
+      },
+      {
+        "title": "IRC",
+        "href": "https://wiki.rockylinux.org/irc/"
+      },
+      {
+        "title": "Calendar",
+        "href": "https://calendar.google.com/calendar/u/0/embed?src=c_2e1oqh6t0i6sqhja5nu9lq8lgo@group.calendar.google.com"
+      }
+    ]
+  },
+  {
+    "translationString": "categories.support",
+    "itemName": [
+      {
+        "title": "Support Providers",
+        "href": "/support/providers"
+      },
+      {
+        "title": "Submit Bug",
+        "href": "https://bugs.rockylinux.org"
+      }
+    ]
+  },
+  {
+    "translationString": "categories.contribute",
+    "itemName": [
+      {
+        "title": "Contribute",
+        "href": "https://wiki.rockylinux.org/contributing/"
+      },
+      {
+        "title": "Shop",
+        "href": "/contribute/shop"
+      },
+      {
+        "title": "Donate",
+        "href": "https://rockylinux.z2systems.com/np/clients/rockylinux/donation.jsp"
+      }
+    ]
+  }
+]

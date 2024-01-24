@@ -18,7 +18,7 @@ export function ModeToggle() {
   };
 
   return (
-    <Button variant="outline" className="p-2" onClick={toggleTheme}>
+    <Button variant="outline" className="py-5 px-3" onClick={toggleTheme}>
       {theme === "light" ? (
         <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       ) : (
