@@ -34,7 +34,7 @@ export default function FeatureOne() {
           </p>
           <p className="mt-6 text-lg leading-8">
             Rocky Linux rebuilds sources directly from RHEL®, so you can bet
-            your best dollar that you'll have a super stable experience, no
+            your best dollar that you&apos;ll have a super stable experience, no
             matter the use-case.
           </p>
         </div>
